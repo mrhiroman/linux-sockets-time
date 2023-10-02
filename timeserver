@@ -10,8 +10,8 @@ s.listen()
 try:
     while True:
         connection, addr = s.accept()
-        time = bytes(str(datetime.now().strftime("%d.%m.%Y %H:%M")), 'utf-8')
-        connection.send(time)
+        time = str(datetime.now().strftime("%d.%m.%Y %H:%M"))
+        connection.send(time.encode())
         connection.close()
 except KeyboardInterrupt:
     sys.exit(0)
