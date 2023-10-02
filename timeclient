@@ -6,11 +6,7 @@ from datetime import datetime
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 addr = input('Enter IP Address: ')
-try:
-    s.bind((addr, 1303))
-except OSError:
-    print('Failed to connect')
-    sys.exit(0)
+s.bind((addr, 1303))
 s.listen()
 connection, addr = s.accept()
 data = connection.recv(16)
