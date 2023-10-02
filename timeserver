@@ -12,7 +12,7 @@ try:
         connection, addr = s.accept()
         time = str(datetime.now().strftime("%d.%m.%Y %H:%M")).encode()
         print(time)
-        connection.send(b'%t' % time)
+        connection.send(b'{time}')
         connection.close()
 except KeyboardInterrupt:
     sys.exit(0)
